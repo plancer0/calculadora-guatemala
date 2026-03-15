@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://calculadora-gt.vercel.app/sitemap.xml
+Sitemap: https://calculadora-guatemala.vercel.app/
