@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://calculadora-gt.vercel.app/sitemap.xml

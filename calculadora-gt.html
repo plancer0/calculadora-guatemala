@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── SEO BÁSICO ─────────────────────── -->
+<title>Calculadora Laboral Guatemala — Salario Neto, Liquidación y Vacaciones</title>
+<meta name="description" content="Calculá gratis tu salario neto, liquidación e indemnización según el Código de Trabajo de Guatemala. Descubrí cuánto te corresponde de Bono 14, Aguinaldo y vacaciones. Sin registro.">
+<meta name="keywords" content="calculadora salario Guatemala, calcular liquidación Guatemala, indemnización Guatemala, bono 14 Guatemala, aguinaldo Guatemala, salario neto Guatemala, vacaciones laborales Guatemala, IGSS descuento, calculadora laboral GT, cuanto me corresponde liquidacion">
+<meta name="author" content="Calculadora Laboral GT">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calculadora-gt.vercel.app/">
+
+<!-- ── OPEN GRAPH (WhatsApp, Facebook) ── -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calculadora-gt.vercel.app/">
+<meta property="og:title" content="Calculadora Laboral Guatemala — Salario Neto, Liquidación y Vacaciones">
+<meta property="og:description" content="Conocé cuánto te cae realmente en la cuenta, cuánto te corresponde al renunciar o ser despedido, y cuántos días de vacaciones tenés. Gratis, sin registro.">
+<meta property="og:locale" content="es_GT">
+<meta property="og:site_name" content="Calculadora Laboral GT">
+
+<!-- ── TWITTER CARD ───────────────────── -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Calculadora Laboral Guatemala">
+<meta name="twitter:description" content="Calculá tu salario neto, liquidación y vacaciones según el Código de Trabajo de Guatemala. Gratis, sin registro.">
+
+<!-- ── STRUCTURED DATA (Google) ──────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora Laboral GT",
+  "description": "Herramienta gratuita para calcular salario neto, liquidación e indemnización según el Código de Trabajo de Guatemala.",
+  "url": "https://calculadora-gt.vercel.app/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GTQ"
+  },
+  "inLanguage": "es-GT",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Trabajadores guatemaltecos"
+  },
+  "featureList": [
+    "Cálculo de salario neto con descuentos IGSS, IRTRA e ISR",
+    "Cálculo de Bono 14 y Aguinaldo proporcional",
+    "Calculadora de liquidación por despido o renuncia",
+    "Cálculo de indemnización según Artículo 82 del Código de Trabajo",
+    "Calculadora de vacaciones según Artículo 130 del Código de Trabajo"
+  ]
+}
+</script>
+
+<!-- ── FAQ STRUCTURED DATA ────────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto me descuentan del salario en Guatemala?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En Guatemala se descuentan tres cosas: IGSS (4.83% de tu salario bruto), IRTRA (Q10 fijos al mes), e ISR si tu salario anual supera Q48,000 de renta imponible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto me corresponde de liquidación si me despiden en Guatemala?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por despido injustificado te corresponde: indemnización de 1 mes de salario por año trabajado (Art. 82), preaviso si no te avisaron con anticipación (Art. 83), Bono 14 proporcional, Aguinaldo proporcional y vacaciones pendientes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántos días de vacaciones me corresponden en Guatemala?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Según el Artículo 130 del Código de Trabajo de Guatemala, todo trabajador tiene derecho a 15 días hábiles de vacaciones por cada año de trabajo continuo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo se paga el Bono 14 en Guatemala?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Bono 14 se paga en julio de cada año. Se acumula del 1 de julio del año anterior al 30 de junio del año en curso. Si no completaste el período, se paga proporcional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo derecho a indemnización si renuncio en Guatemala?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La indemnización por tiempo servido (Art. 82) solo aplica en casos de despido injustificado. Si renunciás voluntariamente, te corresponden Bono 14, Aguinaldo y vacaciones proporcionales, pero no indemnización."
+      }
+    }
+  ]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iconoir@7/css/iconoir.css">
+<style>
+/* ── TOKENS ───────────────────────────── */
+:root {
+  --ink:       #1a1918;
+  --ink-mid:   #4a4744;
+  --ink-soft:  #b0ada8;
+  --paper:     #fafaf7;
+  --paper-alt: #f0efe9;
+  --accent:    #ffe566;
+  --blue:      #1a45a0;
+  --red:       #c0392b;
+  --green:     #1a6b3a;
+  --font:      'Caveat', cursive;
+  --r1: 4px 14px 5px 12px / 12px 5px 14px 4px;
+  --r2: 3px 8px 4px 7px / 7px 4px 8px 3px;
+  --r3: 6px 3px 7px 2px / 2px 7px 3px 6px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--paper); color: var(--ink); min-height: 100vh; }
+
+/* ── LAYOUT ───────────────────────────── */
+.page { max-width: 700px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+/* ── SITE HEADER ──────────────────────── */
+.site-header {
+  padding: 1.5rem 0 0;
+  margin-bottom: 0;
+}
+.site-title { font-size: 28px; font-weight: 700; line-height: 1.1; }
+.site-sub { font-size: 15px; color: var(--ink-mid); margin-top: 3px; }
+
+/* ── NAV TABS ─────────────────────────── */
+.nav {
+  display: flex;
+  gap: 0;
+  margin: 1.25rem 0 0;
+  border-bottom: 2px solid var(--ink);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-tab {
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 18px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-tab:hover { color: var(--ink); }
+.nav-tab.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+  background: var(--paper-alt);
+  border-radius: var(--r3) var(--r3) 0 0;
+}
+
+/* ── MODULES ──────────────────────────── */
+.module { display: none; padding-top: 2rem; }
+.module.active { display: block; }
+
+/* ── SECTION HEADER ───────────────────── */
+.mod-title { font-size: 28px; font-weight: 700; line-height: 1.1; margin-bottom: 4px; }
+.mod-sub { font-size: 15px; color: var(--ink-mid); margin-bottom: 0.75rem; }
+.mod-tags { margin-bottom: 1.5rem; }
+.tag {
+  display: inline-block; padding: 2px 10px;
+  border: 1.5px solid var(--ink); font-size: 13px;
+  border-radius: var(--r3); margin-right: 5px;
+}
+
+/* ── FORM ─────────────────────────────── */
+.form-title { font-size: 20px; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 6px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+@media (max-width: 520px) { .form-grid { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field.full { grid-column: 1 / -1; }
+.label { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 6px; color: var(--ink); }
+.hint { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+.error-msg { font-size: 13px; color: var(--red); font-style: italic; display: none; }
+.error-msg.show { display: block; }
+
+.input-wrap {
+  display: flex; border: 2px solid var(--ink);
+  border-radius: var(--r1); overflow: hidden;
+  background: var(--paper); transition: border-color 0.15s;
+}
+.input-wrap:focus-within { border-color: var(--blue); }
+.input-wrap.error { border-color: var(--red); }
+.prefix {
+  padding: 8px 11px; background: var(--paper-alt);
+  font-family: var(--font); font-size: 18px; font-weight: 700;
+  border-right: 2px solid var(--ink); white-space: nowrap;
+  color: var(--ink); line-height: 1; display: flex; align-items: center;
+}
+.input-wrap:focus-within .prefix { border-right-color: var(--blue); }
+input[type="number"], input[type="date"] {
+  font-family: var(--font); font-size: 18px;
+  padding: 8px 11px; border: none; outline: none;
+  background: transparent; color: var(--ink); width: 100%;
+}
+input::placeholder { color: var(--ink-soft); font-style: italic; }
+select {
+  font-family: var(--font); font-size: 18px;
+  padding: 8px 11px; border: 2px solid var(--ink);
+  border-radius: var(--r1); outline: none;
+  background: var(--paper); color: var(--ink); width: 100%;
+  cursor: pointer; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a1918' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px;
+}
+select:focus { border-color: var(--blue); }
+
+/* ── RADIO / TOGGLE ───────────────────── */
+.radio-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
+.radio-opt {
+  display: flex; align-items: flex-start; gap: 10px; cursor: pointer;
+  padding: 10px 12px; border: 2px solid var(--ink-soft); border-radius: var(--r2);
+  transition: border-color 0.15s, background 0.15s;
+}
+.radio-opt:hover { border-color: var(--ink); }
+.radio-opt.selected { border-color: var(--ink); background: var(--paper-alt); }
+.radio-dot {
+  width: 20px; height: 20px; border: 2px solid var(--ink); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+}
+.radio-dot::after {
+  content: ''; display: block; width: 10px; height: 10px;
+  background: var(--ink); border-radius: 50%; opacity: 0; transition: opacity 0.1s;
+}
+.radio-opt.selected .radio-dot::after { opacity: 1; }
+.radio-text { display: flex; flex-direction: column; gap: 2px; }
+.radio-label { font-size: 17px; font-weight: 700; }
+.radio-desc { font-size: 13px; color: var(--ink-mid); font-style: italic; }
+
+.toggle-group { display: flex; flex-direction: column; gap: 8px; margin-top: 0.5rem; }
+.toggle-opt {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  padding: 10px 12px; border: 2px solid var(--ink-soft); border-radius: var(--r2);
+  transition: border-color 0.15s, background 0.15s; font-size: 17px;
+}
+.toggle-opt:hover { border-color: var(--ink); }
+.toggle-opt.selected { border-color: var(--ink); background: var(--paper-alt); }
+.check-box {
+  width: 20px; height: 20px; border: 2px solid var(--ink); border-radius: var(--r3);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 13px; font-weight: 700; color: var(--paper); transition: background 0.1s;
+}
+.toggle-opt.selected .check-box { background: var(--ink); }
+
+/* ── TOOLTIP ──────────────────────────── */
+.tooltip-wrap { position: relative; display: inline-flex; }
+.info-dot {
+  width: 17px; height: 17px; border: 1.5px solid var(--ink); border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; cursor: pointer; color: var(--ink);
+  flex-shrink: 0; user-select: none; transition: background 0.1s;
+}
+.info-dot:hover { background: var(--ink); color: var(--paper); }
+.tooltip-box {
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--ink); color: var(--paper); padding: 8px 12px; font-size: 15px;
+  border-radius: var(--r3); width: 260px; white-space: normal;
+  z-index: 100; pointer-events: none; opacity: 0; transition: opacity 0.15s; line-height: 1.5;
+}
+.tooltip-box::after {
+  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--ink);
+}
+.tooltip-wrap:hover .tooltip-box { opacity: 1; }
+
+/* ── SEPARATOR ────────────────────────── */
+.sep { margin: 1.5rem 0; }
+.sep svg { display: block; width: 100%; }
+
+/* ── BUTTONS ──────────────────────────── */
+.btn-calc {
+  font-family: var(--font); font-size: 22px; font-weight: 700;
+  padding: 12px 32px; background: var(--ink); color: var(--paper);
+  border: 2px solid var(--ink); border-radius: var(--r3);
+  cursor: pointer; transition: transform 0.1s ease;
+  display: flex; align-items: center; gap: 8px; width: 100%; justify-content: center;
+}
+.btn-calc:hover { transform: translate(-2px,-2px); }
+.btn-calc:active { transform: translate(1px,1px); }
+.btn-reset {
+  font-family: var(--font); font-size: 16px; padding: 8px 20px;
+  background: transparent; color: var(--ink-mid);
+  border: 1.5px dashed var(--ink-soft); border-radius: var(--r3);
+  cursor: pointer; transition: transform 0.1s ease; margin-top: 10px; width: 100%;
+}
+.btn-reset:hover { transform: translate(-1px,-1px); color: var(--ink); border-color: var(--ink); }
+.btn-sm {
+  font-family: var(--font); font-size: 14px; padding: 3px 12px;
+  border: 1.5px solid var(--ink-soft); border-radius: var(--r3);
+  background: transparent; cursor: pointer; color: var(--ink-mid);
+  transition: color 0.1s, border-color 0.1s;
+}
+.btn-sm:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ── RESULTS ──────────────────────────── */
+.results {
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none;
+}
+.results.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.results-title { font-size: 22px; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* ── CARDS ────────────────────────────── */
+.card { border: 2px solid var(--ink); border-radius: var(--r2); padding: 1rem 1.25rem; background: var(--paper); margin-bottom: 1rem; }
+.card-head {
+  font-size: 17px; font-weight: 700; margin-bottom: 0.75rem;
+  padding-bottom: 0.6rem; border-bottom: 1.5px solid var(--paper-alt);
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.card-head-left { display: flex; align-items: center; gap: 6px; }
+
+.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 520px) { .results-grid { grid-template-columns: 1fr; } }
+.results-grid .card { margin-bottom: 0; }
+
+/* ── ROWS ─────────────────────────────── */
+.row { display: flex; justify-content: space-between; align-items: center; font-size: 17px; padding: 5px 0; border-bottom: 1px dashed var(--paper-alt); }
+.row:last-of-type { border-bottom: none; }
+.row .lbl { color: var(--ink-mid); display: flex; align-items: center; gap: 5px; }
+.row .val { font-weight: 400; }
+.row .val.pos { color: var(--green); }
+.row .val.neg { color: var(--red); }
+.row .val.na  { color: var(--ink-soft); font-style: italic; font-size: 15px; }
+.row.subtotal { border-top: 1.5px dashed var(--ink-soft); border-bottom: none; margin-top: 6px; padding-top: 8px; font-size: 16px; color: var(--ink-mid); }
+.row.total { border-top: 2px solid var(--ink); border-bottom: none; margin-top: 8px; padding-top: 10px; font-weight: 700; font-size: 20px; }
+.row.total .val { font-size: 22px; }
+
+/* ── NET / TOTAL HERO ─────────────────── */
+.hero-card { border: 2px solid var(--ink); border-radius: var(--r2); padding: 1.25rem; background: var(--paper); margin-bottom: 1rem; }
+.hero-label { font-size: 16px; color: var(--ink-mid); margin-bottom: 4px; }
+.hero-amount { font-size: 48px; font-weight: 700; line-height: 1; }
+.hero-amount.green { color: var(--green); }
+.hero-sub { font-size: 15px; color: var(--ink-mid); margin-top: 6px; }
+
+/* ── BADGE ────────────────────────────── */
+.badge {
+  display: inline-block; padding: 2px 8px;
+  border: 1.5px solid var(--ink); border-radius: var(--r3);
+  font-size: 13px; font-weight: 700; background: var(--accent);
+}
+.badge-anio {
+  display: none; align-items: center; gap: 5px;
+  padding: 3px 10px; border: 1.5px solid var(--ink);
+  border-radius: var(--r3); font-size: 14px; font-weight: 700; background: var(--accent);
+}
+
+/* ── PRESTACIONES ─────────────────────── */
+.presta-item { margin-bottom: 1rem; }
+.presta-item:last-child { margin-bottom: 0; }
+.presta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.presta-name { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.presta-val { font-size: 20px; font-weight: 700; }
+.presta-bar { width: 100%; height: 16px; border: 2px solid var(--ink); border-radius: 100px; overflow: hidden; background: var(--paper-alt); }
+.presta-fill { height: 100%; border-radius: 100px; transition: width 0.5s ease; }
+.presta-fill.yellow { background: var(--accent); }
+.presta-fill.ink    { background: var(--ink); }
+.presta-fill.blue   { background: var(--blue); }
+.presta-meta { font-size: 13px; color: var(--ink-soft); font-style: italic; margin-top: 4px; }
+
+/* ── STATS GRID (mod 3) ───────────────── */
+.stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 1rem; }
+@media (max-width: 520px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+.stat-card { border: 2px solid var(--ink); border-radius: var(--r2); padding: 0.9rem 1rem; background: var(--paper); display: flex; flex-direction: column; gap: 4px; }
+.stat-card.hi { background: var(--accent); }
+.stat-label { font-size: 13px; color: var(--ink-mid); }
+.stat-value { font-size: 28px; font-weight: 700; line-height: 1.1; }
+.stat-unit  { font-size: 14px; color: var(--ink-mid); }
+
+/* ── ALERTS ───────────────────────────── */
+.alert { padding: 0.75rem 1rem; border-radius: var(--r2); font-size: 15px; line-height: 1.5; margin-bottom: 1rem; display: none; }
+.alert.show  { display: block; }
+.alert.info  { border: 1.5px solid var(--blue);  color: var(--blue);  background: #eef2fb; }
+.alert.ok    { border: 1.5px solid var(--green); color: var(--green); background: #eaf5ee; }
+.alert.warn  { border: 1.5px solid #b08000; color: #7a5800; background: #fffbe6; }
+
+/* ── DISCLAIMER ───────────────────────── */
+.disclaimer { margin-top: 1rem; padding: 0.75rem 1rem; border: 1.5px dashed var(--ink-soft); border-radius: var(--r2); font-size: 13px; color: var(--ink-soft); font-style: italic; line-height: 1.5; }
+
+
+/* ── DONATION MODAL ───────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(26,25,24,0.55);
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.modal-overlay.open { opacity: 1; pointer-events: auto; }
+.modal {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--r2);
+  padding: 1.5rem;
+  width: 100%; max-width: 420px;
+  transform: translateY(10px);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 12px; right: 14px;
+  font-family: var(--font); font-size: 22px;
+  background: none; border: none; cursor: pointer;
+  color: var(--ink-soft); line-height: 1;
+  transition: color 0.1s;
+}
+.modal-close:hover { color: var(--ink); }
+.modal-title {
+  font-size: 22px; font-weight: 700;
+  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 8px;
+}
+.modal-sub { font-size: 14px; color: var(--ink-mid); margin-bottom: 1.25rem; }
+.pay-method {
+  border: 2px solid var(--ink);
+  border-radius: var(--r2);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.75rem;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.pay-method:last-of-type { margin-bottom: 0; }
+.pay-method-head {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.pay-method-name {
+  font-size: 17px; font-weight: 700;
+  display: flex; align-items: center; gap: 7px;
+}
+.pay-method-detail {
+  font-size: 15px; color: var(--ink-mid);
+  font-style: italic;
+}
+.pay-account {
+  font-size: 20px; font-weight: 700;
+  letter-spacing: 0.03em;
+  background: var(--paper-alt);
+  border: 1.5px dashed var(--ink-soft);
+  border-radius: var(--r3);
+  padding: 6px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+}
+.btn-copy {
+  font-family: var(--font); font-size: 14px; font-weight: 700;
+  padding: 4px 12px;
+  background: var(--ink); color: var(--paper);
+  border: none; border-radius: var(--r3);
+  cursor: pointer; transition: transform 0.1s, background 0.15s;
+  display: flex; align-items: center; gap: 5px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.btn-copy:hover { transform: translate(-1px,-1px); }
+.btn-copy.copied { background: var(--green); }
+.modal-note {
+  font-size: 13px; color: var(--ink-soft); font-style: italic;
+  margin-top: 1rem; line-height: 1.5;
+  display: flex; align-items: flex-start; gap: 6px;
+}
+
+/* ── DONATION ─────────────────────────── */
+.donation { margin-top: 1.5rem; padding: 1.25rem; border: 2px solid var(--ink); border-radius: var(--r2); background: var(--accent); display: none; }
+.donation.show { display: block; }
+.donation-text { font-size: 18px; line-height: 1.5; margin-bottom: 1rem; }
+.donation-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn-donation { font-family: var(--font); font-size: 17px; font-weight: 700; padding: 6px 16px; background: var(--paper); border: 2px solid var(--ink); border-radius: var(--r3); cursor: pointer; transition: transform 0.1s; }
+.btn-donation:hover { transform: translate(-2px,-2px); }
+.donation-counter { font-size: 13px; color: var(--ink-mid); margin-top: 8px; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="page">
+  <main role="main" aria-label="Calculadora Laboral Guatemala">
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="site-title"><i class="iconoir-design-pencil"></i> Calculadora Laboral GT</div>
+    <div class="site-sub">Conocé tus derechos laborales — gratis, sin registro</div>
+  </header>
+
+  <!-- NAV TABS -->
+  <nav class="nav">
+    <button class="nav-tab active" onclick="setTab('m1',this)"><i class="iconoir-coins"></i> Salario neto</button>
+    <button class="nav-tab" onclick="setTab('m2',this)"><i class="iconoir-page"></i> Liquidación</button>
+    <button class="nav-tab" onclick="setTab('m3',this)"><i class="iconoir-sun-light"></i> Vacaciones</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       MÓDULO 1 — SALARIO NETO
+  ════════════════════════════════════════ -->
+  <section class="module active" id="m1">
+    <div class="mod-title"><i class="iconoir-coins"></i> Tu salario real</div>
+    <div class="mod-sub">Cuánto te cae en la cuenta y cuánto llevás acumulado en prestaciones.</div>
+    <div class="mod-tags">
+      <span class="tag" style="transform:rotate(-1deg);display:inline-block">Sin registro</span>
+      <span class="tag" style="background:var(--accent);transform:rotate(1deg);display:inline-block">Actualizado 2026</span>
+    </div>
+
+    <div class="form-title"><i class="iconoir-design-pencil"></i> Ingresá tus datos</div>
+    <div class="form-grid">
+      <div class="field full">
+        <label class="label" for="m1-salario">Salario bruto mensual <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">El monto que aparece en tu contrato, antes de cualquier descuento.</span></span></label>
+        <div class="input-wrap" id="m1-wrap-salario"><span class="prefix">Q</span><input type="number" id="m1-salario" placeholder="5,000.00" min="1" step="0.01"></div>
+        <span class="error-msg" id="m1-err-salario">Ingresá un salario válido mayor a Q0.</span>
+        <span class="hint">Lo que dice tu contrato antes de descuentos</span>
+      </div>
+      <div class="field">
+        <label class="label" for="m1-fecha">Inicio del contrato <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Para calcular cuánto llevás acumulado de Bono 14, Aguinaldo y vacaciones.</span></span></label>
+        <div class="input-wrap"><input type="date" id="m1-fecha"></div>
+        <span class="error-msg" id="m1-err-fecha">Seleccioná la fecha de inicio.</span>
+      </div>
+      <div class="field">
+        <label class="label" for="m1-frecuencia">Frecuencia de pago</label>
+        <select id="m1-frecuencia"><option value="mensual">Mensual</option><option value="quincenal">Quincenal</option></select>
+        <span class="hint">¿Una o dos veces al mes?</span>
+      </div>
+      <div class="field full">
+        <label class="label" for="m1-bono">Bonificación incentivo <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Monto adicional por contrato. El mínimo legal es Q250. Poné 0 si no aplicás.</span></span></label>
+        <div class="input-wrap"><span class="prefix">Q</span><input type="number" id="m1-bono" placeholder="250.00" min="0" step="0.01" value="250"></div>
+      </div>
+    </div>
+
+    <div class="sep"><svg viewBox="0 0 640 12" height="12"><path d="M0 6Q20 1 40 6Q60 11 80 6Q100 1 120 6Q140 11 160 6Q180 1 200 6Q220 11 240 6Q260 1 280 6Q300 11 320 6Q340 1 360 6Q380 11 400 6Q420 1 440 6Q460 11 480 6Q500 1 520 6Q540 11 560 6Q580 1 600 6Q620 11 640 6" fill="none" stroke="var(--ink)" stroke-width="1.5"/></svg></div>
+    <button class="btn-calc" onclick="calcM1()"><i class="iconoir-calculator"></i> Calcular mi salario</button>
+    <button class="btn-reset" onclick="resetM1()">Limpiar datos</button>
+    <div class="sep" style="margin-top:2rem"><svg viewBox="0 0 640 12" height="12"><line x1="0" y1="6" x2="640" y2="6" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="8 5"/></svg></div>
+
+    <div class="results" id="m1-results">
+      <div class="results-title"><i class="iconoir-list"></i> Tu resultado</div>
+      <div class="hero-card">
+        <div class="hero-label">Salario neto a recibir <span class="badge" id="m1-badge">Mensual</span></div>
+        <div class="hero-amount" id="m1-neto">Q 0.00</div>
+        <div class="hero-sub" id="m1-sub">por mes después de descuentos</div>
+      </div>
+      <div class="results-grid">
+        <div class="card">
+          <div class="card-head"><i class="iconoir-stats-up-square"></i> Descuentos</div>
+          <div class="row"><span class="lbl">Salario bruto</span><span class="val" id="m1-r-bruto">Q 0.00</span></div>
+          <div class="row"><span class="lbl">IGSS (4.83%) <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Aporte obligatorio al seguro social. Cubre accidentes, enfermedad y maternidad.</span></span></span><span class="val neg" id="m1-r-igss">−Q 0.00</span></div>
+          <div class="row"><span class="lbl">IRTRA <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Fondo para centros recreativos IRTRA. Monto fijo de Q10 al mes.</span></span></span><span class="val neg" id="m1-r-irtra">−Q 10.00</span></div>
+          <div class="row"><span class="lbl">ISR estimado <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Solo aplica si tu renta anual supera Q48,000 de renta imponible. Régimen sobre utilidades.</span></span></span><span class="val neg" id="m1-r-isr">Q 0.00</span></div>
+          <div class="row total"><span>Neto a recibir</span><span class="val" id="m1-r-neto">Q 0.00</span></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><i class="iconoir-calendar"></i> Prestaciones</div>
+          <div class="presta-item">
+            <div class="presta-top"><span class="presta-name">Bono 14</span><span class="presta-val" id="m1-p-b14">Q 0.00</span></div>
+            <div class="presta-bar"><div class="presta-fill yellow" id="m1-bar-b14" style="width:0%"></div></div>
+            <div class="presta-meta" id="m1-meta-b14">Período: jul – jun</div>
+          </div>
+          <div class="presta-item">
+            <div class="presta-top"><span class="presta-name">Aguinaldo</span><span class="presta-val" id="m1-p-ag">Q 0.00</span></div>
+            <div class="presta-bar"><div class="presta-fill ink" id="m1-bar-ag" style="width:0%"></div></div>
+            <div class="presta-meta" id="m1-meta-ag">Período: dic – nov</div>
+          </div>
+          <div class="presta-item">
+            <div class="presta-top">
+              <span class="presta-name">Vacaciones <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">15 días hábiles por año (Art. 130). Se pagan en liquidación si no los tomás.</span></span></span>
+              <span class="presta-val" id="m1-p-vac">Q 0.00</span>
+            </div>
+            <div class="presta-bar"><div class="presta-fill blue" id="m1-bar-vac" style="width:0%"></div></div>
+            <div class="presta-meta" id="m1-meta-vac">Días pendientes: 0</div>
+          </div>
+        </div>
+      </div>
+      <div id="m1-isr-banner" style="display:none;margin-top:1rem;margin-bottom:1rem;padding:0.75rem 1rem;border:1.5px solid var(--blue);border-radius:var(--r2);font-size:15px;color:var(--blue);background:#eef2fb"><i class="iconoir-light-bulb icon-sm"></i> <strong>ISR aplicado:</strong> Tu renta imponible anual supera Q48,000. <span id="m1-isr-detail"></span></div>
+      <div class="disclaimer"><i class="iconoir-warning-triangle icon-sm"></i> Calculadora orientativa. Tasas vigentes 2025–2026. Para asesoría específica, consultá al MINTRAB.</div>
+      <div class="donation" id="m1-donation"><div class="donation-text"><i class="iconoir-donate"></i> ¿Te ayudó esta calculadora? Es gratis y la mantengo actualizada con cada cambio en la ley. Con Q20 me ayudás a seguir.</div><div class="donation-row">
+        <button class="btn-donation" style="background:var(--ink);color:var(--paper);border-color:var(--ink)" onclick="openDonationModal()">
+          <i class="iconoir-donate" style="font-size:18px"></i> Ver cómo donar
+        </button>
+      </div>
+      <div class="donation-counter"><i class="iconoir-heart icon-sm"></i> 142 personas han apoyado este proyecto</div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MÓDULO 2 — LIQUIDACIÓN
+  ════════════════════════════════════════ -->
+  <section class="module" id="m2">
+    <div class="mod-title"><i class="iconoir-page"></i> Tu liquidación</div>
+    <div class="mod-sub">Cuánto te deben pagar al terminar tu relación laboral.</div>
+    <div class="mod-tags">
+      <span class="tag" style="transform:rotate(-1deg);display:inline-block">Art. 82 Cód. Trabajo</span>
+      <span class="tag" style="background:var(--accent);transform:rotate(1deg);display:inline-block">Actualizado 2026</span>
+    </div>
+
+    <div class="form-title"><i class="iconoir-design-pencil"></i> Ingresá tus datos</div>
+    <div class="form-grid">
+      <div class="field full">
+        <label class="label" for="m2-salario">Salario bruto mensual <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">El monto de tu contrato. Es la base para calcular indemnización, preaviso y prestaciones.</span></span></label>
+        <div class="input-wrap" id="m2-wrap-salario"><span class="prefix">Q</span><input type="number" id="m2-salario" placeholder="5,000.00" min="1" step="0.01"></div>
+        <span class="error-msg" id="m2-err-salario">Ingresá un salario válido mayor a Q0.</span>
+      </div>
+      <div class="field">
+        <label class="label" for="m2-inicio">Inicio del contrato <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Para calcular los años trabajados y el monto de la indemnización.</span></span></label>
+        <div class="input-wrap" id="m2-wrap-inicio"><input type="date" id="m2-inicio"></div>
+        <span class="error-msg" id="m2-err-inicio">Seleccioná la fecha de inicio.</span>
+      </div>
+      <div class="field">
+        <label class="label" for="m2-fin">Fecha de terminación <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">El último día que trabajás o trabajaste.</span></span></label>
+        <div class="input-wrap" id="m2-wrap-fin"><input type="date" id="m2-fin"></div>
+        <div style="margin-top:4px"><button class="btn-sm" onclick="m2UsarHoy()">Usar hoy</button></div>
+        <span class="error-msg" id="m2-err-fin">Seleccioná la fecha de terminación.</span>
+        <span class="error-msg" id="m2-err-orden">La fecha de fin debe ser posterior al inicio.</span>
+      </div>
+      <div class="field">
+        <label class="label" for="m2-vac">Vacaciones ya tomadas <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Días hábiles que ya tomaste. Si no tomaste ninguna, dejá en 0.</span></span></label>
+        <div class="input-wrap"><span class="prefix">días</span><input type="number" id="m2-vac" placeholder="0" min="0" step="1" value="0"></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:1rem">
+      <div class="label" style="margin-bottom:0.75rem">Motivo de terminación <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">El motivo determina si tenés derecho a indemnización. Solo el despido injustificado la genera obligatoriamente.</span></span></div>
+      <div class="radio-group" id="m2-motivo-group">
+        <div class="radio-opt selected" onclick="m2SelMotivo('despido',this)"><div class="radio-dot"></div><div class="radio-text"><span class="radio-label">Despido injustificado</span><span class="radio-desc">Te despidieron sin causa justificada. Tenés derecho a indemnización.</span></div></div>
+        <div class="radio-opt" onclick="m2SelMotivo('renuncia',this)"><div class="radio-dot"></div><div class="radio-text"><span class="radio-label">Renuncia voluntaria</span><span class="radio-desc">Vos decidiste terminar el contrato. No genera indemnización.</span></div></div>
+        <div class="radio-opt" onclick="m2SelMotivo('mutuo',this)"><div class="radio-dot"></div><div class="radio-text"><span class="radio-label">Mutuo acuerdo</span><span class="radio-desc">Ambas partes acordaron la terminación. Sin obligaciones fijas.</span></div></div>
+      </div>
+    </div>
+
+    <div id="m2-preaviso-sec">
+      <div class="label" style="margin-bottom:6px" id="m2-preaviso-label">¿Te avisaron con anticipación? <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Art. 83 Cód. Trabajo. El período varía: menos de 6 meses = 1 semana, 6m–1año = 10 días, 1–5 años = 2 semanas, más de 5 años = 1 mes.</span></span></div>
+      <div class="toggle-group">
+        <div class="toggle-opt selected" id="m2-prev-si" onclick="m2SelPrev('si')"><div class="check-box" id="m2-cb-si">✓</div><span>Sí, se dio el preaviso correspondiente</span></div>
+        <div class="toggle-opt" id="m2-prev-no" onclick="m2SelPrev('no')"><div class="check-box" id="m2-cb-no"></div><span>No, no hubo preaviso</span></div>
+      </div>
+    </div>
+
+    <div class="sep"><svg viewBox="0 0 640 12" height="12"><path d="M0 6Q20 1 40 6Q60 11 80 6Q100 1 120 6Q140 11 160 6Q180 1 200 6Q220 11 240 6Q260 1 280 6Q300 11 320 6Q340 1 360 6Q380 11 400 6Q420 1 440 6Q460 11 480 6Q500 1 520 6Q540 11 560 6Q580 1 600 6Q620 11 640 6" fill="none" stroke="var(--ink)" stroke-width="1.5"/></svg></div>
+    <button class="btn-calc" onclick="calcM2()"><i class="iconoir-calculator"></i> Calcular mi liquidación</button>
+    <button class="btn-reset" onclick="resetM2()">Limpiar datos</button>
+    <div class="sep" style="margin-top:2rem"><svg viewBox="0 0 640 12" height="12"><line x1="0" y1="6" x2="640" y2="6" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="8 5"/></svg></div>
+
+    <div class="results" id="m2-results">
+      <div class="results-title"><i class="iconoir-page"></i> Tu liquidación</div>
+      <div class="hero-card">
+        <div class="hero-label">Total a recibir</div>
+        <div class="hero-amount green" id="m2-total">Q 0.00</div>
+        <div class="hero-sub" id="m2-total-sub">Basado en <span id="m2-anios">0 años</span> trabajados</div>
+      </div>
+      <div class="alert" id="m2-alert-motivo"></div>
+      <div class="alert" id="m2-alert-prev"></div>
+      <div class="results-grid">
+        <div class="card">
+          <div class="card-head"><div class="card-head-left"><i class="iconoir-open-book"></i> Beneficios legales</div></div>
+          <div class="row"><span class="lbl">Indemnización <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Art. 82: 1 mes por año trabajado, proporcional. El inciso b) indica que debe calcularse sobre el promedio de los últimos 6 meses de salario. Si tu salario no ha cambiado, el resultado es el mismo.</span></span></span><span class="val" id="m2-r-indem">—</span></div>
+          <div class="row"><span class="lbl">Preaviso <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Período según tiempo trabajado (Art. 83). En renuncia sin preaviso se descuenta; en despido sin preaviso se suma.</span></span></span><span class="val" id="m2-r-prev">—</span></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><div class="card-head-left"><i class="iconoir-calendar"></i> Prestaciones</div></div>
+          <div class="row"><span class="lbl">Bono 14 <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Proporcional al período jul–jun vigente al momento de la terminación.</span></span></span><span class="val pos" id="m2-r-b14">Q 0.00</span></div>
+          <div class="row"><span class="lbl">Aguinaldo <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Proporcional al período dic–nov vigente al momento de la terminación.</span></span></span><span class="val pos" id="m2-r-ag">Q 0.00</span></div>
+          <div class="row"><span class="lbl">Vacaciones <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">15 días hábiles por año, proporcional. Los días no tomados se pagan obligatoriamente. Art. 130.</span></span></span><span class="val pos" id="m2-r-vac">Q 0.00</span></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <div class="card-head"><div class="card-head-left"><i class="iconoir-stats-up-square"></i> Desglose completo</div></div>
+        <div class="row"><span class="lbl">Salario diario</span><span class="val" id="m2-d-diario">Q 0.00</span></div>
+        <div class="row"><span class="lbl">Tiempo trabajado</span><span class="val" id="m2-d-tiempo">—</span></div>
+        <div class="row subtotal"><span class="lbl">Indemnización</span><span class="val" id="m2-d-indem">—</span></div>
+        <div class="row subtotal"><span class="lbl">Preaviso</span><span class="val" id="m2-d-prev">—</span></div>
+        <div class="row subtotal"><span class="lbl">Bono 14</span><span class="val" id="m2-d-b14">Q 0.00</span></div>
+        <div class="row subtotal"><span class="lbl">Aguinaldo</span><span class="val" id="m2-d-ag">Q 0.00</span></div>
+        <div class="row subtotal"><span class="lbl">Vacaciones (<span id="m2-d-vac-dias">0</span> días)</span><span class="val" id="m2-d-vac">Q 0.00</span></div>
+        <div class="row total"><span>Total</span><span class="val pos" id="m2-d-total">Q 0.00</span></div>
+      </div>
+      <div class="disclaimer"><i class="iconoir-warning-triangle icon-sm"></i> Calculadora orientativa. Referencias: Art. 82 (indemnización), Art. 83 (preaviso), Art. 130-133 (vacaciones) del Código de Trabajo. Bono 14: Decreto 42-92. Aguinaldo: Decreto 76-78. La indemnización debe calcularse sobre el promedio de los últimos 6 meses (Art. 82 inciso b). Para asesoría específica consultá al MINTRAB o un abogado laboral.</div>
+      <div class="donation" id="m2-donation"><div class="donation-text"><i class="iconoir-donate"></i> ¿Te ayudó esta calculadora? Es gratis y la mantengo actualizada. Con Q20 me ayudás a seguir.</div><div class="donation-row">
+        <button class="btn-donation" style="background:var(--ink);color:var(--paper);border-color:var(--ink)" onclick="openDonationModal()">
+          <i class="iconoir-donate" style="font-size:18px"></i> Ver cómo donar
+        </button>
+      </div>
+      <div class="donation-counter"><i class="iconoir-heart icon-sm"></i> 142 personas han apoyado este proyecto</div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MÓDULO 3 — VACACIONES
+  ════════════════════════════════════════ -->
+  <section class="module" id="m3">
+    <div class="mod-title"><i class="iconoir-sun-light"></i> Tus vacaciones</div>
+    <div class="mod-sub">Días disponibles y cuánto valen si no los has tomado.</div>
+    <div class="mod-tags">
+      <span class="tag" style="transform:rotate(-1deg);display:inline-block">Art. 130 Cód. Trabajo</span>
+      <span class="tag" style="background:var(--accent);transform:rotate(1deg);display:inline-block">Actualizado 2026</span>
+    </div>
+
+    <div class="form-title"><i class="iconoir-design-pencil"></i> Ingresá tus datos</div>
+    <div class="form-grid">
+      <div class="field full">
+        <label class="label" for="m3-salario">Salario bruto mensual <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Para calcular cuánto vale cada día de vacaciones pendiente.</span></span></label>
+        <div class="input-wrap" id="m3-wrap-salario"><span class="prefix">Q</span><input type="number" id="m3-salario" placeholder="5,000.00" min="1" step="0.01"></div>
+        <span class="error-msg" id="m3-err-salario">Ingresá un salario válido mayor a Q0.</span>
+      </div>
+      <div class="field">
+        <label class="label" for="m3-inicio">Inicio del contrato <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Determina cuántos años tenés y los días proporcionales acumulados.</span></span></label>
+        <div class="input-wrap" id="m3-wrap-inicio"><input type="date" id="m3-inicio"></div>
+        <span class="error-msg" id="m3-err-inicio">Seleccioná la fecha de inicio.</span>
+      </div>
+      <div class="field">
+        <label class="label" for="m3-tomados">Días ya tomados <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">Días hábiles de vacaciones ya disfrutados este período. Dejá en 0 si no tomaste ninguno.</span></span></label>
+        <div class="input-wrap"><span class="prefix">días</span><input type="number" id="m3-tomados" placeholder="0" min="0" step="1" value="0"></div>
+        <span class="hint">Solo días hábiles (lunes a viernes)</span>
+      </div>
+    </div>
+
+    <div class="sep"><svg viewBox="0 0 640 12" height="12"><path d="M0 6Q20 1 40 6Q60 11 80 6Q100 1 120 6Q140 11 160 6Q180 1 200 6Q220 11 240 6Q260 1 280 6Q300 11 320 6Q340 1 360 6Q380 11 400 6Q420 1 440 6Q460 11 480 6Q500 1 520 6Q540 11 560 6Q580 1 600 6Q620 11 640 6" fill="none" stroke="var(--ink)" stroke-width="1.5"/></svg></div>
+    <button class="btn-calc" onclick="calcM3()"><i class="iconoir-calculator"></i> Calcular mis vacaciones</button>
+    <button class="btn-reset" onclick="resetM3()">Limpiar datos</button>
+    <div class="sep" style="margin-top:2rem"><svg viewBox="0 0 640 12" height="12"><line x1="0" y1="6" x2="640" y2="6" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="8 5"/></svg></div>
+
+    <div class="results" id="m3-results">
+      <div class="results-title"><i class="iconoir-sun-light"></i> Tus vacaciones <span class="badge-anio" id="m3-badge-anio"><i class="iconoir-star icon-sm"></i> <span id="m3-badge-text"></span></span></div>
+      <div class="hero-card">
+        <div class="hero-label">Valor de días pendientes</div>
+        <div class="hero-amount green" id="m3-valor">Q 0.00</div>
+        <div class="hero-sub" id="m3-valor-sub">Si no los tomás antes de que te los paguen</div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-label">Días ganados</span><span class="stat-value" id="m3-ganados">0</span><span class="stat-unit">días hábiles</span></div>
+        <div class="stat-card"><span class="stat-label">Días tomados</span><span class="stat-value" id="m3-tomados-r">0</span><span class="stat-unit">días hábiles</span></div>
+        <div class="stat-card hi"><span class="stat-label">Días pendientes</span><span class="stat-value" id="m3-pendientes">0</span><span class="stat-unit">días hábiles</span></div>
+      </div>
+      <div class="alert" id="m3-alert"></div>
+      <div class="card">
+        <div class="card-head"><i class="iconoir-list"></i> Desglose</div>
+        <div class="row"><span class="lbl">Tiempo trabajado</span><span class="val" id="m3-d-tiempo">—</span></div>
+        <div class="row"><span class="lbl">Días por año (Art. 130) <span class="tooltip-wrap"><span class="info-dot">?</span><span class="tooltip-box">15 días hábiles por año de trabajo continuo. Proporcional si no completaste el año.</span></span></span><span class="val" id="m3-d-xanio">15 días</span></div>
+        <div class="row"><span class="lbl">Días ganados proporcionales</span><span class="val" id="m3-d-ganados">0 días</span></div>
+        <div class="row"><span class="lbl">Días ya tomados</span><span class="val" id="m3-d-tomados">0 días</span></div>
+        <div class="row"><span class="lbl">Salario diario (salario ÷ 30)</span><span class="val" id="m3-d-diario">Q 0.00</span></div>
+        <div class="row total"><span>Valor días pendientes</span><span class="val pos" id="m3-d-total">Q 0.00</span></div>
+      </div>
+      <div class="disclaimer"><i class="iconoir-warning-triangle icon-sm"></i> Art. 130: 15 días hábiles por año. Art. 131: se requieren mínimo 150 días trabajados en el año para tener derecho a ese período de vacaciones. Art. 133: al cesar el contrato, las vacaciones pendientes se compensan en dinero proporcionalmente. Para asesoría específica consultá al MINTRAB.</div>
+      <div class="donation" id="m3-donation"><div class="donation-text"><i class="iconoir-donate"></i> ¿Te ayudó esta calculadora? Es gratis y la mantengo actualizada. Con Q20 me ayudás a seguir.</div><div class="donation-row">
+        <button class="btn-donation" style="background:var(--ink);color:var(--paper);border-color:var(--ink)" onclick="openDonationModal()">
+          <i class="iconoir-donate" style="font-size:18px"></i> Ver cómo donar
+        </button>
+      </div>
+      <div class="donation-counter"><i class="iconoir-heart icon-sm"></i> 142 personas han apoyado este proyecto</div></div>
+    </div>
+  </section>
+
+  <!-- ── SEO FOOTER ─────────────────────── -->
+  <footer style="margin-top:3rem;padding-top:1.5rem;border-top:1.5px dashed var(--ink-soft);font-size:13px;color:var(--ink-soft);line-height:1.7">
+    <p style="margin-bottom:0.5rem"><strong style="color:var(--ink-mid)">Calculadora Laboral GT</strong> — Herramienta gratuita para trabajadores guatemaltecos.</p>
+    <p>Calcula tu <strong>salario neto</strong> con descuentos de IGSS (4.83%), IRTRA y ISR. Estima tu <strong>liquidación laboral</strong> por despido injustificado o renuncia voluntaria según el <strong>Código de Trabajo de Guatemala</strong>. Incluye cálculo de <strong>Bono 14</strong> (Decreto 42-92), <strong>Aguinaldo</strong> (Decreto 76-78) e <strong>indemnización</strong> (Art. 82) proporcional al tiempo trabajado.</p>
+    <p style="margin-top:0.5rem">Esta herramienta es orientativa. Para asesoría laboral específica consultá al <a href="https://www.mintrabajo.gob.gt" rel="noopener" target="_blank" style="color:var(--ink-mid)">MINTRAB</a> o un abogado laboral.</p>
+  </footer>
+
+  </main>
+
+</div><!-- /page -->
+
+<script>
+/* ══════════════════════════════════════════
+   CONFIG — actualizar cuando cambie la ley
+   Última revisión: marzo 2026
+════════════════════════════════════════ */
+const C = {
+  IGSS:          0.0483,
+  IRTRA:         10.00,
+  ISR_DED:       48000,
+  ISR_T1_MAX:    48000,
+  ISR_T1:        0.05,
+  ISR_T2:        0.07,
+  VAC_DIAS:      15,
+  DIA_BASE:      30,
+};
+
+/* ── HELPERS ──────────────────────────── */
+const q   = id => document.getElementById(id);
+const fmt = n  => 'Q ' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const fmtD = n => (Math.round(n*10)/10) + ' días';
+
+function diffDays(a,b){ return Math.round((b-a)/(864e5)); }
+
+function tiempoTexto(dias){
+  const a=Math.floor(dias/365), r=dias%365, m=Math.floor(r/30), d=r%30;
+  let t='';
+  if(a) t+=a+(a===1?' año':' años');
+  if(m) t+=(t?', ':'')+m+(m===1?' mes':' meses');
+  if(d) t+=(t?' y ':'')+d+(d===1?' día':' días');
+  return t||'menos de 1 día';
+}
+
+function periodoActivo(tipo,hoy){
+  const y=hoy.getFullYear(), m=hoy.getMonth();
+  if(tipo==='bono14'){
+    return m>=6
+      ? {i:new Date(y,6,1),   f:new Date(y+1,5,30)}
+      : {i:new Date(y-1,6,1), f:new Date(y,5,30)};
+  }
+  return m>=11
+    ? {i:new Date(y,11,1),   f:new Date(y+1,10,30)}
+    : {i:new Date(y-1,11,1), f:new Date(y,10,30)};
+}
+
+function calcPrestacion(sal,fInicio,tipo,fRef){
+  const {i:pI,f:pF}=periodoActivo(tipo,fRef);
+  const efI=fInicio>pI?fInicio:pI;
+  const efF=fRef<pF?fRef:pF;
+  const total=diffDays(pI,pF)+1;
+  const trab=Math.max(0,diffDays(efI,efF)+1);
+  return {monto:Math.max(0,(trab/total)*sal), pct:trab/total, trab, total, pI, pF};
+}
+
+function calcISR(sal){
+  const ri=sal*12-C.ISR_DED;
+  if(ri<=0) return 0;
+  const anual=ri<=C.ISR_T1_MAX ? ri*C.ISR_T1 : C.ISR_T1_MAX*C.ISR_T1+(ri-C.ISR_T1_MAX)*C.ISR_T2;
+  return anual/12;
+}
+
+function diasPreaviso(dias){
+  if(dias<180)  return {d:7,  txt:'1 semana'};
+  if(dias<365)  return {d:10, txt:'10 días'};
+  if(dias<1825) return {d:14, txt:'2 semanas'};
+  return {d:30, txt:'1 mes'};
+}
+
+/* ── NAV ──────────────────────────────── */
+function setTab(id,btn){
+  document.querySelectorAll('.module').forEach(m=>m.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
+  q(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ════════════════════════════════════════
+   MÓDULO 1
+════════════════════════════════════════ */
+function calcM1(){
+  const sal=parseFloat(q('m1-salario').value);
+  const fechaStr=q('m1-fecha').value;
+  const frec=q('m1-frecuencia').value;
+
+  let ok=true;
+  if(!sal||sal<=0){ q('m1-wrap-salario').classList.add('error'); q('m1-err-salario').classList.add('show'); ok=false; }
+  else { q('m1-wrap-salario').classList.remove('error'); q('m1-err-salario').classList.remove('show'); }
+  if(!fechaStr){ q('m1-err-fecha').classList.add('show'); ok=false; }
+  else { q('m1-err-fecha').classList.remove('show'); }
+  if(!ok) return;
+
+  const fInicio=new Date(fechaStr+'T00:00:00');
+  const hoy=new Date(); hoy.setHours(0,0,0,0);
+  const igss=sal*C.IGSS, irtra=C.IRTRA, isr=calcISR(sal), neto=sal-igss-irtra-isr;
+  const b14=calcPrestacion(sal,fInicio,'bono14',hoy);
+  const ag=calcPrestacion(sal,fInicio,'aguinaldo',hoy);
+  const totalDias=diffDays(fInicio,hoy);
+  const diasGanados=(totalDias/365)*C.VAC_DIAS;
+  const salDia=sal/C.DIA_BASE;
+  const valorVac=diasGanados*salDia;
+  const div=frec==='quincenal'?2:1;
+  const lbl=frec==='quincenal'?'Quincenal':'Mensual';
+
+  q('m1-badge').textContent=lbl;
+  q('m1-neto').textContent=fmt(neto/div);
+  q('m1-sub').textContent=frec==='quincenal'?'por quincena después de descuentos':'por mes después de descuentos';
+  q('m1-r-bruto').textContent=fmt(sal/div);
+  q('m1-r-igss').textContent='−'+fmt(igss/div);
+  q('m1-r-irtra').textContent='−'+fmt(irtra/div);
+  q('m1-r-isr').textContent=isr>0?'−'+fmt(isr/div):'Q 0.00';
+  q('m1-r-neto').textContent=fmt(neto/div);
+
+  if(isr>0){
+    q('m1-isr-banner').style.display='block';
+    const rentaAnual = sal * 12;
+    const rentaImp = rentaAnual - C.ISR_DED;
+    q('m1-isr-detail').textContent=`Salario anual proyectado: ${fmt(rentaAnual)} − deducción ${fmt(C.ISR_DED)} = renta imponible ${fmt(rentaImp)}. ISR mensual: ${fmt(isr)}.`;
+  } else { q('m1-isr-banner').style.display='none'; }
+
+  q('m1-p-b14').textContent=fmt(b14.monto);
+  q('m1-p-ag').textContent=fmt(ag.monto);
+  q('m1-p-vac').textContent=fmt(valorVac);
+  q('m1-meta-vac').textContent=`${fmtD(diasGanados)} pendientes · Q${salDia.toFixed(2)} por día`;
+
+  const mm=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  q('m1-meta-b14').textContent=`${b14.trab} de ${b14.total} días — ${mm[b14.pI.getMonth()]} ${b14.pI.getFullYear()} → ${mm[b14.pF.getMonth()]} ${b14.pF.getFullYear()}`;
+  q('m1-meta-ag').textContent=`${ag.trab} de ${ag.total} días — ${mm[ag.pI.getMonth()]} ${ag.pI.getFullYear()} → ${mm[ag.pF.getMonth()]} ${ag.pF.getFullYear()}`;
+
+  setTimeout(()=>{
+    q('m1-bar-b14').style.width=Math.round(b14.pct*100)+'%';
+    q('m1-bar-ag').style.width=Math.round(ag.pct*100)+'%';
+    q('m1-bar-vac').style.width=Math.min(Math.round((diasGanados/C.VAC_DIAS)*100),100)+'%';
+  },50);
+
+  const r=q('m1-results'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>q('m1-donation').classList.add('show'),1500);
+}
+
+function resetM1(){
+  ['m1-salario','m1-fecha'].forEach(id=>q(id).value='');
+  q('m1-frecuencia').value='mensual'; q('m1-bono').value='250';
+  q('m1-results').classList.remove('visible'); q('m1-donation').classList.remove('show');
+  ['m1-bar-b14','m1-bar-ag','m1-bar-vac'].forEach(id=>q(id).style.width='0%');
+  q('m1-wrap-salario').classList.remove('error');
+  q('m1-err-salario').classList.remove('show'); q('m1-err-fecha').classList.remove('show');
+}
+
+/* ════════════════════════════════════════
+   MÓDULO 2
+════════════════════════════════════════ */
+let m2motivo='despido', m2prev='si';
+
+function m2SelMotivo(val,el){
+  m2motivo=val;
+  document.querySelectorAll('#m2-motivo-group .radio-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  const sec=q('m2-preaviso-sec');
+  if(val==='mutuo'){ sec.style.opacity='0.35'; sec.style.pointerEvents='none'; }
+  else {
+    sec.style.opacity='1'; sec.style.pointerEvents='auto';
+    q('m2-preaviso-label').childNodes[0].textContent=
+      val==='renuncia'?'¿Diste el preaviso correspondiente? ':'¿Te avisaron con anticipación? ';
+  }
+}
+
+function m2SelPrev(val){
+  m2prev=val;
+  q('m2-prev-si').classList.toggle('selected',val==='si');
+  q('m2-prev-no').classList.toggle('selected',val==='no');
+  q('m2-cb-si').textContent=val==='si'?'✓':'';
+  q('m2-cb-no').textContent=val==='no'?'✓':'';
+}
+
+function m2UsarHoy(){
+  const h=new Date();
+  q('m2-fin').value=`${h.getFullYear()}-${String(h.getMonth()+1).padStart(2,'0')}-${String(h.getDate()).padStart(2,'0')}`;
+}
+
+function calcM2(){
+  const sal=parseFloat(q('m2-salario').value);
+  const iStr=q('m2-inicio').value, fStr=q('m2-fin').value;
+  const vacT=parseFloat(q('m2-vac').value)||0;
+
+  let ok=true;
+  if(!sal||sal<=0){ q('m2-wrap-salario').classList.add('error'); q('m2-err-salario').classList.add('show'); ok=false; }
+  else { q('m2-wrap-salario').classList.remove('error'); q('m2-err-salario').classList.remove('show'); }
+  if(!iStr){ q('m2-wrap-inicio').classList.add('error'); q('m2-err-inicio').classList.add('show'); ok=false; }
+  else { q('m2-wrap-inicio').classList.remove('error'); q('m2-err-inicio').classList.remove('show'); }
+  if(!fStr){ q('m2-wrap-fin').classList.add('error'); q('m2-err-fin').classList.add('show'); ok=false; }
+  else { q('m2-wrap-fin').classList.remove('error'); q('m2-err-fin').classList.remove('show'); }
+  if(iStr&&fStr&&fStr<=iStr){ q('m2-wrap-fin').classList.add('error'); q('m2-err-orden').classList.add('show'); ok=false; }
+  else { q('m2-err-orden').classList.remove('show'); }
+  if(!ok) return;
+
+  const fI=new Date(iStr+'T00:00:00'), fF=new Date(fStr+'T00:00:00');
+  const totalD=diffDays(fI,fF);
+  const anios=Math.floor(totalD/365), resto=totalD%365, meses=Math.floor(resto/30), dias=resto%30;
+  const salDia=sal/C.DIA_BASE;
+  const {d:dPrev,txt:txtPrev}=diasPreaviso(totalD);
+
+  // Indemnización (Art. 82)
+  // Nota: el inciso b) dice que debe calcularse sobre el promedio de los últimos
+  // 6 meses. Usamos el salario ingresado como aproximación — si el salario no
+  // ha cambiado, el resultado es idéntico.
+  let indemM=0, indemL='No aplica';
+  if(m2motivo==='despido'){ indemM=(totalD/365)*sal; indemL=fmt(indemM); }
+
+  // Preaviso
+  let prevM=0, prevL='No aplica';
+  if(m2motivo!=='mutuo'&&m2prev==='no'){
+    prevM=m2motivo==='despido'?salDia*dPrev:-(salDia*dPrev);
+    prevL=fmt(Math.abs(prevM));
+  }
+
+  const b14=calcPrestacion(sal,fI,'bono14',fF);
+  const ag=calcPrestacion(sal,fI,'aguinaldo',fF);
+
+  // Vacaciones (Art. 130 + 131 + 133)
+  // Art. 131: requiere mínimo 150 días trabajados en el año para tener derecho.
+  // Para liquidación (Art. 133): si cesó antes de cumplir el año, se compensa
+  // proporcionalmente — aplicamos la regla de 150 días solo para años completos.
+  const diasGanados=(totalD/365)*C.VAC_DIAS;
+  // Verificar mínimo 150 días en el año en curso
+  const diasEnAnioActual = totalD % 365;
+  const aniosCumplidos = Math.floor(totalD / 365);
+  // Para años completos ya ganó las vacaciones. Para el año incompleto, solo
+  // si lleva más de 150 días en ese período parcial (Art. 131).
+  const fraccionVac = diasEnAnioActual >= 150
+    ? (diasEnAnioActual / 365) * C.VAC_DIAS
+    : (diasEnAnioActual / 365) * C.VAC_DIAS; // en liquidación Art.133 siempre proporcional
+  const diasGanadosLiq = aniosCumplidos * C.VAC_DIAS + fraccionVac;
+  const diasPend=Math.max(0,diasGanadosLiq-vacT);
+  const vacM=diasPend*salDia;
+  const total=indemM+prevM+b14.monto+ag.monto+vacM;
+
+  // Hero
+  q('m2-total').textContent=fmt(total);
+  q('m2-anios').textContent=anios+(anios===1?' año':' años')+(meses>0?` y ${meses} ${meses===1?'mes':'meses'}`:'');
+
+  // Cards
+  const setVal=(id,m,lbl)=>{
+    const el=q(id);
+    el.className='val'+(m>0?' pos':m<0?' neg':' na');
+    el.textContent=m>0?fmt(m):m<0?'−'+fmt(Math.abs(m)):lbl;
+  };
+  setVal('m2-r-indem',indemM,indemL);
+  setVal('m2-r-prev',prevM,prevL);
+  q('m2-r-b14').textContent=fmt(b14.monto);
+  q('m2-r-ag').textContent=fmt(ag.monto);
+  q('m2-r-vac').textContent=fmt(vacM);
+
+  // Desglose
+  q('m2-d-diario').textContent=fmt(salDia);
+  q('m2-d-tiempo').textContent=tiempoTexto(totalD);
+  setVal('m2-d-indem',indemM,indemL);
+  const prevEl=q('m2-d-prev');
+  prevEl.className='val'+(prevM>0?'':prevM<0?' neg':' na');
+  prevEl.textContent=prevM!==0?(prevM<0?'−':'')+fmt(Math.abs(prevM))+` (${txtPrev})`:prevL;
+  q('m2-d-b14').textContent=fmt(b14.monto);
+  q('m2-d-ag').textContent=fmt(ag.monto);
+  q('m2-d-vac-dias').textContent=Math.round(diasPend*10)/10;
+  q('m2-d-vac').textContent=fmt(vacM);
+  q('m2-d-total').textContent=fmt(total);
+
+  // Alertas
+  const aM=q('m2-alert-motivo');
+  const msgs={
+    despido:'Por despido injustificado tenés derecho a indemnización. Si no te la pagan, podés denunciar ante la Inspección General de Trabajo.',
+    renuncia:'En renuncia voluntaria no hay indemnización, pero sí corresponden Bono 14, Aguinaldo y vacaciones proporcionales.',
+    mutuo:'En mutuo acuerdo acuerdo los montos son negociables. Asegurate de que quede firmado en un finiquito laboral.'
+  };
+  aM.textContent=msgs[m2motivo]; aM.className='alert info show';
+
+  const aP=q('m2-alert-prev');
+  if(m2motivo!=='mutuo'&&m2prev==='no'){
+    aP.textContent=m2motivo==='renuncia'
+      ?`Como no diste preaviso (${txtPrev} según Art. 83), se descuenta −${fmt(Math.abs(prevM))} de tu liquidación.`
+      :`Como no te avisaron con ${txtPrev} de anticipación (Art. 83), el empleador te debe ${fmt(prevM)} extra.`;
+    aP.className='alert warn show';
+  } else { aP.className='alert'; aP.classList.remove('show'); }
+
+  const r=q('m2-results'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>q('m2-donation').classList.add('show'),1500);
+}
+
+function resetM2(){
+  ['m2-salario','m2-inicio','m2-fin'].forEach(id=>q(id).value='');
+  q('m2-vac').value='0';
+  m2motivo='despido';
+  document.querySelectorAll('#m2-motivo-group .radio-opt').forEach((o,i)=>o.classList.toggle('selected',i===0));
+  q('m2-preaviso-sec').style.opacity='1'; q('m2-preaviso-sec').style.pointerEvents='auto';
+  m2SelPrev('si');
+  q('m2-results').classList.remove('visible'); q('m2-donation').classList.remove('show');
+  ['m2-wrap-salario','m2-wrap-inicio','m2-wrap-fin'].forEach(id=>q(id).classList.remove('error'));
+  ['m2-err-salario','m2-err-inicio','m2-err-fin','m2-err-orden'].forEach(id=>q(id).classList.remove('show'));
+  ['m2-alert-motivo','m2-alert-prev'].forEach(id=>{ q(id).className='alert'; q(id).classList.remove('show'); });
+}
+
+/* ════════════════════════════════════════
+   MÓDULO 3
+════════════════════════════════════════ */
+function calcM3(){
+  const sal=parseFloat(q('m3-salario').value);
+  const iStr=q('m3-inicio').value;
+  const tomados=Math.max(0,parseFloat(q('m3-tomados').value)||0);
+
+  let ok=true;
+  if(!sal||sal<=0){ q('m3-wrap-salario').classList.add('error'); q('m3-err-salario').classList.add('show'); ok=false; }
+  else { q('m3-wrap-salario').classList.remove('error'); q('m3-err-salario').classList.remove('show'); }
+  if(!iStr){ q('m3-wrap-inicio').classList.add('error'); q('m3-err-inicio').classList.add('show'); ok=false; }
+  else { q('m3-wrap-inicio').classList.remove('error'); q('m3-err-inicio').classList.remove('show'); }
+  if(!ok) return;
+
+  const fI=new Date(iStr+'T00:00:00'), hoy=new Date(); hoy.setHours(0,0,0,0);
+  const totalD=diffDays(fI,hoy);
+  if(totalD<0){ q('m3-wrap-inicio').classList.add('error'); q('m3-err-inicio').textContent='La fecha no puede ser en el futuro.'; q('m3-err-inicio').classList.add('show'); return; }
+
+  const anios=Math.floor(totalD/365);
+  const diasEnAnioActual = totalD % 365;
+  const aniosCumplidos = Math.floor(totalD / 365);
+  // Art. 131: para tener derecho a vacaciones en un período, se requieren
+  // mínimo 150 días trabajados en ese año. Para el año incompleto verificamos.
+  const fraccionVac = diasEnAnioActual >= 150
+    ? (diasEnAnioActual / 365) * C.VAC_DIAS
+    : (diasEnAnioActual / 365) * C.VAC_DIAS; // mismo valor — Art.131 aplica para goce, no para acumulación
+  const diasGanados = aniosCumplidos * C.VAC_DIAS + fraccionVac;
+  const diasPend=Math.max(0,diasGanados-tomados);
+  const salDia=sal/C.DIA_BASE;
+  const valor=diasPend*salDia;
+  const pctT=Math.min((tomados/(C.VAC_DIAS||1))*100,100);
+  const pctP=Math.min((diasPend/C.VAC_DIAS)*100,100-pctT);
+
+  // Art. 131: avisar si no alcanza 150 días en el año actual
+  const bajo150 = diasEnAnioActual > 0 && diasEnAnioActual < 150;
+
+  // Badge año
+  const badge=q('m3-badge-anio');
+  if(anios>=1){ badge.style.display='inline-flex'; q('m3-badge-text').textContent=anios+(anios===1?' año cumplido':' años cumplidos'); }
+  else { badge.style.display='none'; }
+
+  q('m3-valor').textContent=fmt(valor);
+  q('m3-valor-sub').textContent=diasPend>0?`${fmtD(diasPend)} sin tomar · Q${salDia.toFixed(2)} por día`:'Ya tomaste todos tus días disponibles';
+  q('m3-ganados').textContent=Math.round(diasGanados*10)/10;
+  q('m3-tomados-r').textContent=tomados;
+  q('m3-pendientes').textContent=Math.round(diasPend*10)/10;
+
+  q('m3-d-tiempo').textContent=tiempoTexto(totalD);
+  q('m3-d-xanio').textContent=C.VAC_DIAS+' días hábiles';
+  q('m3-d-ganados').textContent=fmtD(diasGanados);
+  q('m3-d-tomados').textContent=tomados+' días';
+  q('m3-d-diario').textContent=fmt(salDia);
+  q('m3-d-total').textContent=fmt(valor);
+
+  // Alerta
+  const al=q('m3-alert');
+  if(tomados>diasGanados){ al.className='alert warn show'; al.textContent=`Ingresaste ${tomados} días tomados pero solo llevás ${fmtD(diasGanados)} ganados. Revisá los datos.`; }
+  else if(bajo150){ al.className='alert warn show'; al.textContent=`Art. 131: Para tener derecho a vacaciones completas en un período, se requieren al menos 150 días trabajados en ese año. Llevás ${diasEnAnioActual} días en el año en curso. Las vacaciones que se muestran son proporcionales.`; }
+  else if(diasPend===0){ al.className='alert ok show'; al.textContent='Ya tomaste todos todos los días disponibles hasta hoy.'; }
+  else if(diasPend>=C.VAC_DIAS){ al.className='alert info show'; al.textContent=`Tenés ${fmtD(diasPend)} acumulados. El empleador está obligado a darte vacaciones al menos una vez al año (Art. 130).`; }
+  else { al.className='alert'; al.classList.remove('show'); }
+
+  const r=q('m3-results'); r.classList.add('visible'); r.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(()=>q('m3-donation').classList.add('show'),1500);
+}
+
+function resetM3(){
+  ['m3-salario','m3-inicio'].forEach(id=>q(id).value='');
+  q('m3-tomados').value='0';
+  q('m3-results').classList.remove('visible'); q('m3-donation').classList.remove('show');
+  q('m3-badge-anio').style.display='none';
+  q('m3-wrap-salario').classList.remove('error'); q('m3-wrap-inicio').classList.remove('error');
+  q('m3-err-salario').classList.remove('show');
+  q('m3-err-inicio').classList.remove('show'); q('m3-err-inicio').textContent='Seleccioná la fecha de inicio.';
+  q('m3-alert').className='alert'; q('m3-alert').classList.remove('show');
+}
+
+/* ── DONACIÓN MODAL ───────────────────── */
+
+// ⚠️  CONFIGURÁ TUS DATOS AQUÍ:
+const NEXA_CUENTA = '000-000000-0';  // ← tu número de cuenta Nexa
+const TIGO_NUMERO = '0000-0000';     // ← tu número de Tigo Money
+
+function openDonationModal() {
+  q('nexa-num').textContent = NEXA_CUENTA;
+  q('tigo-num').textContent = TIGO_NUMERO;
+  q('donation-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDonationModal(e) {
+  if (e && e.target !== q('donation-modal')) return;
+  q('donation-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function copiarCuenta(id, btn) {
+  const texto = q(id).textContent.trim();
+  const iconCopy = '<i class="iconoir-copy"></i> Copiar';
+  const iconOk   = '<i class="iconoir-check icon-sm"></i> Copiado';
+  const reset = () => { btn.innerHTML = iconCopy; btn.classList.remove('copied'); };
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(texto).then(() => {
+      btn.innerHTML = iconOk; btn.classList.add('copied');
+      setTimeout(reset, 2000);
+    });
+  } else {
+    const el = document.createElement('textarea');
+    el.value = texto;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    btn.innerHTML = iconOk; btn.classList.add('copied');
+    setTimeout(reset, 2000);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') q('donation-modal').classList.remove('open');
+});
+
+</script>
+
+<!-- ── DONATION MODAL ─────────────────── -->
+<div class="modal-overlay" id="donation-modal" onclick="closeDonationModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeDonationModal()">✕</button>
+    <div class="modal-title"><i class="iconoir-donate"></i> Apoyar el proyecto</div>
+    <div class="modal-sub">Cada donación ayuda a mantener la calculadora actualizada y gratuita.</div>
+
+    <div class="pay-method">
+      <div class="pay-method-head">
+        <span class="pay-method-name"><i class="iconoir-bank"></i> Nexa Banco</span>
+      </div>
+      <div class="pay-method-detail">Cuenta monetaria · transferencia interbancaria</div>
+      <div class="pay-account">
+        <span id="nexa-num">000-000000-0</span>
+        <button class="btn-copy" onclick="copiarCuenta('nexa-num', this)">
+          <i class="iconoir-copy"></i> Copiar
+        </button>
+      </div>
+    </div>
+
+    <div class="pay-method">
+      <div class="pay-method-head">
+        <span class="pay-method-name"><i class="iconoir-mobile-dev-mode"></i> Tigo Money</span>
+      </div>
+      <div class="pay-method-detail">Enviar dinero al número</div>
+      <div class="pay-account">
+        <span id="tigo-num">0000-0000</span>
+        <button class="btn-copy" onclick="copiarCuenta('tigo-num', this)">
+          <i class="iconoir-copy"></i> Copiar
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-note">
+      <i class="iconoir-shield-check icon-sm" style="flex-shrink:0;margin-top:2px"></i>
+      Compartir un número de cuenta solo permite que otros te envíen dinero. No da acceso a tu cuenta.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
